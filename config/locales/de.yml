@@ -1,0 +1,9 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  welcome: "Willkommen"
+  slogan: "Dem Fundort aller Informationen rund um Ragnarok Online!"
+  language: "Sprache"
+  english: "Englisch"
+  german: "Deutsch"
