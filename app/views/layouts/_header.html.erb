@@ -19,6 +19,9 @@
         <ul class="nav">
           <li class="divider-vertical"></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% if current_user.role_id >= 4 %>
+          <li><%= link_to('Admin-CP', current_user ) %></li>
+        <% end %>
         </ul>
         <% else %>
         <form action="users/sign_in" class="navbar-form pull-right new_user" id="new_user" method="post">
