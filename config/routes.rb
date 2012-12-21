@@ -1,10 +1,18 @@
-Ragnarok::Application.routes.draw do
-  
-  get "basic_pages/index"
-  get "basic_pages/impressum"
+Ragnarok::Application.routes.draw do  
 
   scope "(:locale)", :locale => /de|en/ do
-    # resources :books
+
+    # You can have the root of your site routed with "root"
+    # just remember to delete public/index.html.
+    match '/:locale' => 'basic_pages#index'
+    root :to => 'basic_pages#index'
+
+    get "basic_pages/index"
+    get "basic_pages/impressum"
+
+    devise_for :users
+    resources :users
+
   end
 
   # The priority is based upon order of creation:
@@ -53,11 +61,6 @@ Ragnarok::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  match '/:locale' => 'basic_pages#index'
-  root :to => 'basic_pages#index'
 
   # See how all your routes lay out with "rake routes"
 

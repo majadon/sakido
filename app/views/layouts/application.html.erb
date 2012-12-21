@@ -12,6 +12,7 @@
     	<% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
+      <div class="pull-right"><%=t :language %>: <%= link_to t(:german), "/de/" %> | <%= link_to t(:english), "/en/" %></div>
 
       <%= yield %>      
 

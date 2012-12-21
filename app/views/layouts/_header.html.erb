@@ -9,19 +9,27 @@
       <a class="brand">Sakido</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#"><%=t :forums %></a></li>
+          <li><%= link_to('Home', root_path ) %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to(t(:forums), current_user ) %></li>
+          <li class="divider-vertical"></li>
           <li><a href="#"><%=t :database %></a></li>
-          <li><%= link_to t(:english), "/en/" %></li>
-          <li><%= link_to t(:german), "/de/" %></li>
         </ul>
-        <form class="navbar-form pull-right">
-          <input class="span2" type="text" placeholder="Email">
-          <input class="span2" type="password" placeholder="Password">
-           <button type="submit" class="btn">Sign in</button>
+        <% if user_signed_in? %>
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+        <% else %>
+        <form action="users/sign_in" class="navbar-form pull-right new_user" id="new_user" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <input name="authenticity_token" type="hidden" value="lSvSmaVYiuESFhW92iYWD6k5A0dt90uqGdgjqIwkMYc=" />
+          <input class="span2" id="user_email" name="user[email]" type="email" value="" placeholder="Email" />
+          <input class="span2" id="user_password" name="user[password]" type="password" placeholder="Password" />
+          <button name="commit" type="submit" class="btn">Sign in</button>
         </form>
+        <% end %>
       </div>      
     </div>
-    <div class="pull-right"><%=t :language %>: <%= link_to t(:german), "/de/" %> | <%= link_to t(:english), "/en/" %></div>
   </div>
 </div>
