@@ -3,6 +3,8 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>    
     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "forem/twist/style" %>
   	<%= csrf_meta_tags %>
   	<%= render 'layouts/shim' %>    
   </head>
@@ -18,7 +20,6 @@
 
     	<%= render 'layouts/footer' %>  
     </div>
-    <%= javascript_include_tag "application" %>
   </body>
 </html>
 

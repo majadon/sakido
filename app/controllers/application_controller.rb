@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
     
   before_filter :set_locale
 		
@@ -31,5 +32,10 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     session[:previous_url] || root_path
   end
+
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
 
 end

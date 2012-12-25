@@ -1,3 +1,22 @@
+GIT
+  remote: git://github.com/radar/forem-theme-twist.git
+  revision: f08ab243ee695bd5485d589c1177d99d00602150
+  specs:
+    forem-theme-twist (0.0.1)
+
+GIT
+  remote: git://github.com/radar/forem.git
+  revision: d8730a6b140d4bc2b981c9802ca5cd38642695c9
+  specs:
+    forem (1.0.0.beta1)
+      cancan (= 1.6.8)
+      forem-redcarpet (= 1.0.0)
+      friendly_id (~> 4.0)
+      gemoji (= 1.1.2)
+      rails (~> 3.1)
+      simple_form
+      workflow (= 0.8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,11 +48,14 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    blankslate (3.1.2)
     bootstrap-sass (2.1.0.0)
     bootstrap-will_paginate (0.0.6)
       will_paginate
     builder (3.0.4)
+    cancan (1.6.8)
     capistrano (2.13.5)
       highline
       net-scp (>= 1.0.0)
@@ -55,6 +77,12 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    ffi (1.0.11)
+    forem-redcarpet (1.0.0)
+      pygments.rb (= 0.2.4)
+      redcarpet (= 2.0.1)
+    friendly_id (4.0.9)
+    gemoji (1.1.2)
     highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.1)
@@ -69,6 +97,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -79,6 +108,8 @@ GEM
       net-ssh (>= 1.99.1)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pygments.rb (0.2.4)
+      rubypython (~> 0.5.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -104,16 +135,24 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.0.1)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
     sass (3.2.4)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.4)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.6)
     sqlite3 (1.3.6-x86-mingw32)
     thor (0.16.0)
     tilt (1.3.3)
@@ -127,6 +166,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
+    workflow (0.8.0)
 
 PLATFORMS
   x86-mingw32
@@ -137,6 +177,8 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   devise
+  forem!
+  forem-theme-twist!
   jquery-rails
   mysql2
   rails (= 3.2.9)

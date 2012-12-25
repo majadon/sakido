@@ -9,18 +9,23 @@
       <a class="brand">Sakido</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><%= link_to('Home', root_path ) %></li>
+          <li><%= link_to('Home', main_app.root_path ) %></li>
           <li class="divider-vertical"></li>
-          <li><%= link_to(t(:forums), current_user ) %></li>
+          <li><%= link_to(t(:forums), forem.root_path ) %></li>
           <li class="divider-vertical"></li>
           <li><a href="#"><%=t :database %></a></li>
         </ul>
         <% if user_signed_in? %>
         <ul class="nav">
           <li class="divider-vertical"></li>
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <li><%= link_to "Logout", main_app.destroy_user_session_path, :method => :delete %></li>
         <% if current_user.role_id >= 4 %>
-          <li><%= link_to('Admin-CP', current_user ) %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to('Admin-CP', '#' ) %></li>
+        <% if current_user.forem_admin %>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Forum-CP", forem.admin_root_url %></li>
+        <% end %>
         <% end %>
         </ul>
         <% else %>

@@ -7,11 +7,13 @@ Ragnarok::Application.routes.draw do
     match '/:locale' => 'basic_pages#index'
     root :to => 'basic_pages#index'
 
-    get "basic_pages/index"
+    # get "basic_pages/index"
     get "basic_pages/impressum"
 
     devise_for :users
     resources :users
+
+    mount Forem::Engine, :at => "/forums"
 
   end
 

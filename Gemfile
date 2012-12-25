@@ -5,13 +5,18 @@ gem 'bootstrap-sass', '2.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'devise'
-gem 'mysql2'
+gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
 	gem 'sqlite3'
+end
+
+group :production do
+	gem 'mysql2'
 end
 
 
