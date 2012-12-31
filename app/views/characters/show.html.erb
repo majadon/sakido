@@ -1,0 +1,44 @@
+<h1>Characters#show</h1>
+<p>Find me in app/views/characters/show.html.erb</p>
+
+<% provide(:title, "Characters") %>
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				Job ID: <%= @character.jobid %>
+			</h1>
+		</section>
+	</aside>
+	<br />
+	<br />
+	Weight: <%= @character.weight %><br />
+	HP Faktor: <%= @character.hpfactor %><br />
+	HP Multiplikator: <%= @character.hpmultiplicator %><br />
+    SP Faktor: <%= @character.spfactor %><br />
+	Unarmed: <%= @character.unarmed %><br />
+    Dagger: <%= @character.dagger %><br />
+    Sword: <%= @character.oneh_sword %><br />
+    2H Sword: <%= @character.twoh_sword %><br />
+    1H Spear: <%= @character.oneh_spear %><br />
+    2H Spear: <%= @character.twoh_spear %><br />
+    1H Axe: <%= @character.oneh_axe %><br />
+    2H Axe: <%= @character.twoh_axe %><br />
+    1H Mace: <%= @character.oneh_mace %><br />
+    2H Mace (unused): <%= @character.twoh_mace_unused %><br />
+    Rod: <%= @character.rod %><br />
+    Bow: <%= @character.bow %><br />
+    Knuckle: <%= @character.knuckle %><br />
+    Intrument: <%= @character.instrument %><br />
+    Whip: <%= @character.whip %><br />
+    Book: <%= @character.book %><br />
+    Katar: <%= @character.katar %><br />
+    Revolver: <%= @character.revolver %><br />
+    Rifle: <%= @character.rifle %><br />
+    Gatling Gun: <%= @character.gatling_gun %><br />
+    Shotgun: <%= @character.shotgun %><br />
+    Grenade Launcher: <%= @character.grenade_launcher %><br />
+    Fuuma Shuriken: <%= @character.fuuma_shuriken %><br />
+    2H Staff: <%= @character.twoh_staff %><br />
+    Shield: <%= @character.shield %>
+</div>

@@ -1,5 +1,13 @@
 Ragnarok::Application.routes.draw do  
 
+  get "items/index"
+
+  get "items/show"
+
+  get "monsters/index"
+
+  get "monsters/show"
+
   scope "(:locale)", :locale => /de|en/ do
 
     # You can have the root of your site routed with "root"
@@ -7,13 +15,23 @@ Ragnarok::Application.routes.draw do
     match '/:locale' => 'basic_pages#index'
     root :to => 'basic_pages#index'
 
-    # get "basic_pages/index"
     get "basic_pages/impressum"
+    get "databases/index"
+
+    scope "databases" do 
+      resources :characters
+      resources :monsters
+      resources :items
+      resources :exp 
+    end
 
     devise_for :users
     resources :users
+    resources :databases
 
-    mount Forem::Engine, :at => "/forums"
+    match '/database', to: 'databases#index'
+    match '/about', to: 'basic_pages#about'
+    match '/contact', to: 'basic_pages#contact'
 
   end
 
