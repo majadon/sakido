@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 gem 'devise'
 gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'bootstrap-sass', '2.1'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
+gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 
 
 # Bundle edge Rails instead:
@@ -23,10 +27,7 @@ group :assets do
   gem "haml-rails"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '2.1'
-  gem 'will_paginate', '3.0.3'
-  gem 'bootstrap-will_paginate', '0.0.6'
-  gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
+  
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby

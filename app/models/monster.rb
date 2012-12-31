@@ -2,9 +2,9 @@ class Monster < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :mobid
 
-	def to_s
+	  def to_s
       self.ironame
-    end   
+    end  
 
     def atkrange
       "#{self.atk1} ~ #{self.atk2}"

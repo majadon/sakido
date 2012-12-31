@@ -29,6 +29,8 @@ Ragnarok::Application.routes.draw do
     resources :users
     resources :databases
 
+    mount Forem::Engine, :at => "/forums"
+
     match '/database', to: 'databases#index'
     match '/about', to: 'basic_pages#about'
     match '/contact', to: 'basic_pages#contact'
