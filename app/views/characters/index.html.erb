@@ -1,2 +1,14 @@
-<h1>Characters#index</h1>
-<p>Find me in app/views/characters/index.html.erb</p>
+<% provide(:title, "Character" ) %>
+<div class="page-header">
+    <h1>Characters<small>#index</small></h1>
+</div>
+    <table class="table table-hover table-bordered">
+    	<tr>
+    		<th>Character</th>
+    	</tr>
+    	<% @characters.each do |char| %>
+    	<tr>
+    		<td><%= link_to char, char %></td>
+      		<% end %>
+      	</tr>
+    </table> 

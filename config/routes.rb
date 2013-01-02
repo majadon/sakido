@@ -1,13 +1,5 @@
 Ragnarok::Application.routes.draw do  
 
-  get "items/index"
-
-  get "items/show"
-
-  get "monsters/index"
-
-  get "monsters/show"
-
   scope "(:locale)", :locale => /de|en/ do
 
     # You can have the root of your site routed with "root"
@@ -16,7 +8,11 @@ Ragnarok::Application.routes.draw do
     root :to => 'basic_pages#index'
 
     get "basic_pages/impressum"
-    get "databases/index"
+    # get "databases/index"
+    # get "items/index"
+    # get "items/show"
+    # get "monsters/index"
+    # get "monsters/show"
 
     scope "databases" do 
       resources :characters

@@ -4,14 +4,14 @@ class Monster < ActiveRecord::Base
 
 	  def to_s
       self.ironame
-    end  
+    end
 
     def atkrange
       "#{self.atk1} ~ #{self.atk2}"
     end
 
     def drops
-      Item.where(:itemid => [drop1id, drop2id, drop3id, drop4id, drop5id, drop6id, drop7id, drop8id, drop9id])
+      Item.where(:itemid => [drop1id, drop2id, drop3id, drop4id, drop5id, drop6id, drop7id, drop8id, drop9id, dropcardid])
     end
 
     def mvpdrops

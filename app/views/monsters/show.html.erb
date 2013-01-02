@@ -1,5 +1,7 @@
-<h1>Monsters#show</h1>
 <% provide(:title, "Monster: " + @monster.ironame ) %>
+<div class="page-header">
+    <h1>Monsters<small>#show</small></h1>
+</div>
 <div class="row">
 	<aside class="span4">
 		<section>
@@ -94,7 +96,7 @@
 	<tr>
 		<td>MVP Exp: <%= @monster.mexp %></td>
 		<% @monster.mvpdrops.each do |mvpitem| %>
-			<td><%= mvpitem %></td>
+			<td><%= link_to mvpitem, mvpitem %></td>
 		<% end %>
 	</tr>
 </table>
@@ -104,7 +106,7 @@
 <table class="table table-bordered table-hover">
 	<tr> 
 		<% @monster.drops.each do |item| %>
-			<td><%= item %></td>
+			<td><%= link_to item, item %></td>
 		<% end %>
 	</tr> 
 </table>

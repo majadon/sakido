@@ -1,2 +1,66 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<% provide(:title, "Item: " + @item.name ) %>
+<div class="page-header">
+	<h1>Items<small>#show</small></h1>
+</div>
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1></h1>
+		</section>
+	</aside>
+	<br />
+	<br />
+</div>
+<h2>Item ID: <%= @item.itemid %></h2>
+<table class="table table-bordered table-hover">
+	<tr>
+		<th>Aegis Name:</th> 
+		<th>Item Name:</th> 
+		<th>Modeltype:</th> 
+		<th>buy:</th> 
+		<th>sell:</th> 
+		<th>Weight:</th> 
+		<th>Atk:</th> 
+		<th>Def:</th> 
+		<th>Range:</th> 
+		<th>Slots:</th>  
+	</tr>
+	<tr>
+		<td><%= @item.aegisname %></td>
+		<td><%= @item.name %></td>
+		<td><%= @item.modeltype %></td>
+		<td><%= @item.buy %></td>
+		<td><%= @item.sell %></td>
+		<td><%= @item.weight %></td>
+		<td><%= @item.atk %></td>
+		<td><%= @item.def %></td>
+		<td><%= @item.range %></td>
+		<td><%= @item.slots %></td>
+	</tr>
+</table>
+<table class="table table-bordered table-hover">
+	<tr>
+		<th>Job:</th> 
+		<th>Upper:</th> 
+		<th>Gender:</th> 
+		<th>Loc:</th> 
+		<th>Elv:</th> 
+		<th>Refineable:</th> 
+		<th>view:</th> 
+		<th>script:</th> 
+		<th>On Equip:</th> 
+		<th>On Unequip:</th>  
+	</tr>
+	<tr>
+		<td><%= @item.job %></td>
+		<td><%= @item.upper %></td>
+		<td><%= @item.gender %></td>
+		<td><%= @item.loc %></td>
+		<td><%= @item.elv %></td>
+		<td><%= @item.refineable %></td>
+		<td><%= @item.view %></td>
+		<td><%= @item.script %></td>
+		<td><%= @item.onequip_script %></td>
+		<td><%= @item.onunequip_script %></td>
+	</tr>
+</table>
