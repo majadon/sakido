@@ -3,7 +3,11 @@ class Character < ActiveRecord::Base
   attr_accessible :jobid
 
   def to_s
-  	self.jobid
+  	"#{self.jobname}"
+  end
+
+  def to_param
+    "#{self.id}-#{self.to_s.parameterize}"
   end
 
 end

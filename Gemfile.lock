@@ -82,12 +82,6 @@ GEM
       redcarpet (= 2.0.1)
     friendly_id (4.0.9)
     gemoji (1.1.2)
-    haml (3.1.7)
-    haml-rails (0.3.5)
-      actionpack (>= 3.1, < 4.1)
-      activesupport (>= 3.1, < 4.1)
-      haml (~> 3.1)
-      railties (>= 3.1, < 4.1)
     highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.1)
@@ -182,7 +176,6 @@ DEPENDENCIES
   devise
   forem!
   forem-theme-twist!
-  haml-rails
   jquery-rails
   mysql2
   rails (= 3.2.9)

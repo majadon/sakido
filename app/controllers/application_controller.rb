@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    
+  before_filter :authenticate    
   before_filter :set_locale
 		
 	def set_locale
@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
   def self.default_url_options(options={})
   	logger.debug "default_url_options is passed options: #{options.inspect}\n"
   	{ :locale => I18n.locale }
+  end
+
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "mauerblume" && password == "kugelpuzzel"
+    end
   end
 
   after_filter :store_location

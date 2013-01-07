@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  race_id: 1
+  monster_race: MyString
+
+two:
+  race_id: 1
+  monster_race: MyString

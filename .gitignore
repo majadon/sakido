@@ -19,3 +19,6 @@
 
 #Ignore deploy.rb
 /config/deploy.rb
+
+#Ignore custom uploads
+/custom_uploads/*

@@ -5,13 +5,12 @@
 <div class="row">
 	<aside class="span4">
 		<section>
-			<h1>
-				Job ID: <%= @character.jobid %>
-			</h1>
+			<h1><%= @character.jobname %></h1>
 		</section>
 	</aside>
 	<br />
 	<br />
+    Job ID: <%= @character.jobid %><br />
 	Weight: <%= @character.weight %><br />
 	HP Faktor: <%= @character.hpfactor %><br />
 	HP Multiplikator: <%= @character.hpmultiplicator %><br />

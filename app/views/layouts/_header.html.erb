@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand">Sakido</a>
+      <a class="brand">sakido.net</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li><%= link_to('Home', main_app.root_path ) %></li>
@@ -31,7 +31,7 @@
         <% end %>
         </ul>
         <% else %>
-        <form action="users/sign_in" class="navbar-form pull-right new_user" id="new_user" method="post">
+        <form action="/users/sign_in" class="navbar-form pull-right new_user" id="new_user" method="post">
           <input name="utf8" type="hidden" value="&#x2713;" />
           <input name="authenticity_token" type="hidden" value="lSvSmaVYiuESFhW92iYWD6k5A0dt90uqGdgjqIwkMYc=" />
           <input class="span2" id="user_email" name="user[email]" type="email" value="" placeholder="Email" />

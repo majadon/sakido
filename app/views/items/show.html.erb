@@ -64,3 +64,12 @@
 		<td><%= @item.onunequip_script %></td>
 	</tr>
 </table>
+<h4>Droped by:</h4>
+			<table class="table table-bordered table-hover">
+				<% @item.monster_items.each do |drop| %>
+				<tr>
+					<td><%= link_to(drop.monster, drop.monster) %></td>
+					<td><%= drop.percent/100.00 %> %</td>
+				</tr>
+				<% end %> 
+			</table>

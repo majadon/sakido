@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  monster: 
+  item: 
+  percent: 1
+
+two:
+  monster: 
+  item: 
+  percent: 1

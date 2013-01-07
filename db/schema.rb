@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231124955) do
+ActiveRecord::Schema.define(:version => 20130106220548) do
 
   create_table "characters", :force => true do |t|
     t.integer  "jobid"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20121231124955) do
     t.integer  "shield"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "jobname"
+  end
+
+  create_table "elements", :force => true do |t|
+    t.integer  "element_id"
+    t.string   "monster_element"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "forem_categories", :force => true do |t|
@@ -170,6 +178,17 @@ ActiveRecord::Schema.define(:version => 20121231124955) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "monster_items", :force => true do |t|
+    t.integer  "monster_id"
+    t.integer  "item_id"
+    t.integer  "percent"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "monster_items", ["item_id"], :name => "index_monster_items_on_item_id"
+  add_index "monster_items", ["monster_id"], :name => "index_monster_items_on_monster_id"
+
   create_table "monsters", :force => true do |t|
     t.integer  "mobid"
     t.string   "sprite_name"
@@ -232,8 +251,57 @@ ActiveRecord::Schema.define(:version => 20121231124955) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "monsterskills", :force => true do |t|
+    t.integer  "mobid"
+    t.string   "dummy_value"
+    t.string   "state"
+    t.integer  "skill_id"
+    t.integer  "skill_lv"
+    t.integer  "rate"
+    t.integer  "casttime"
+    t.integer  "delay"
+    t.string   "cancelable"
+    t.string   "target"
+    t.string   "condition_type"
+    t.string   "condition_value"
+    t.integer  "val1"
+    t.integer  "val2"
+    t.integer  "val3"
+    t.integer  "val4"
+    t.integer  "val5"
+    t.string   "emotion"
+    t.string   "chat"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "mvp_items", :force => true do |t|
+    t.integer  "monster_id"
+    t.integer  "item_id"
+    t.integer  "percent"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "mvp_items", ["item_id"], :name => "index_mvp_items_on_item_id"
+  add_index "mvp_items", ["monster_id"], :name => "index_mvp_items_on_monster_id"
+
+  create_table "races", :force => true do |t|
+    t.integer  "race_id"
+    t.string   "monster_race"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "scales", :force => true do |t|
+    t.integer  "scale_id"
+    t.string   "size"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

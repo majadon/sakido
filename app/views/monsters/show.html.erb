@@ -8,79 +8,27 @@
 			<h1></h1>
 		</section>
 	</aside>
-	<br />
-	<br />
 </div>
-<h2>MOB ID: <%= @monster.mobid %></h2>
-<table class="table table-bordered table-hover">
+
+<table class="table table-hover">
 	<tr>
 		<th>Sprite Name:</th> 
 		<th>kRO Name:</th> 
-		<th>iRO Name:</th> 
-		<th>Level:</th> 
-		<th>HP:</th> 
-		<th>SP:</th> 
-		<th>EXP:</th> 
-		<th>Job EXP:</th> 
-		<th>Range 1:</th> 
-		<th>ATK Range:</th>  
-	</tr>
-	<tr>
-		<td><%= @monster.sprite_name %></td>
-		<td><%= @monster.kroname %></td>
-		<td><%= @monster.ironame %></td>
-		<td><%= @monster.lv %></td>
-		<td><%= @monster.hp %></td>
-		<td><%= @monster.sp %></td>
-		<td><%= @monster.exp %></td>
-		<td><%= @monster.jexp %></td>
-		<td><%= @monster.range1 %></td>
-		<td><%= @monster.atkrange %></td>
-	</tr>
-</table>
-
-<table class="table table-bordered table-hover">
-	<tr>
-		<th>Def:</th> 
-		<th>MDef:</th>
-		<th>Str:</th> 
-		<th>Agi:</th> 
-		<th>Vit:</th> 
-		<th>Int:</th> 
-		<th>Dex:</th> 
-		<th>Luk:</th> 
+		<th>Range 1:</th>
 		<th>Range 2:</th> 
-		<th>Range 3:</th> 
-		<th>Scale:</th> 
-		<th>Race:</th> 
-		<th>Element:</th> 
-	</tr>
-	<tr>
-		<td><%= @monster.def %></td>
-		<td><%= @monster.mdef %></td>
-		<td><%= @monster.str %></td>
-		<td><%= @monster.agi %></td>
-		<td><%= @monster.vit %></td>
-		<td><%= @monster.int %></td>
-		<td><%= @monster.dex %></td>
-		<td><%= @monster.luk %></td>
-		<td><%= @monster.range2 %></td>
-		<td><%= @monster.range3 %></td>
-		<td><%= @monster.scale %></td>
-		<td><%= @monster.race %></td>
-		<td><%= @monster.element %></td>
-	</tr>
-</table>
-
-<table class="table table-bordered table-hover">
-	<tr>
+		<th>Range 3:</th>
 		<th>Mode:</th> 
 		<th>Speed:</th>
 		<th>ADelay:</th> 
 		<th>AMotion:</th> 
-		<th>DMotion:</th> 
+		<th>DMotion:</th>   
 	</tr>
 	<tr>
+		<td><%= @monster.sprite_name %></td>
+		<td><%= @monster.kroname %></td>
+		<td><%= @monster.range1 %></td>
+		<td><%= @monster.range2 %></td>
+		<td><%= @monster.range3 %></td>
 		<td><%= @monster.mode %></td>
 		<td><%= @monster.speed %></td>
 		<td><%= @monster.adelay %></td>
@@ -88,25 +36,129 @@
 		<td><%= @monster.dmotion %></td>
 	</tr>
 </table>
-<br />
-<h2>Drops</h2>
-<% if @monster.mexp > 0 %>
-<h3>MVP</h3>
-<table class="table table-bordered table-hover">
+
+<table class="table table-bordered">
 	<tr>
-		<td>MVP Exp: <%= @monster.mexp %></td>
-		<% @monster.mvpdrops.each do |mvpitem| %>
-			<td><%= link_to mvpitem, mvpitem %></td>
-		<% end %>
+		<td rowspan="10">
+			<div class="thumbnail">
+				<%= image_tag("monster/#{@monster.mobid}.gif") %>
+			</div>
+		</td> 
+		<th>Name:</th>
+		<td><%= @monster.ironame %></td> 
+		<th>Def:</th> 
+		<td><%= @monster.def %></td> 
+	</tr>
+	<tr>
+		<th>Level:</th>
+		<td><%= @monster.lv %></td> 
+		<th>mDef:</th> 
+		<td><%= @monster.mdef %></td>
+	</tr>
+	<tr>
+		<th>HP:</th>
+		<td><%= @monster.hp %></td> 
+		<th>Str:</th> 
+		<td><%= @monster.str %></td>
+	</tr>
+	<tr>
+		<th>SP:</th>
+		<td><%= @monster.sp %></td> 
+		<th>Agi:</th> 
+		<td><%= @monster.agi %></td>
+	</tr>
+	<tr>
+		<th>ExP:</th>
+		<td><%= @monster.exp %></td> 
+		<th>Vit:</th> 
+		<td><%= @monster.vit %></td>
+	</tr>
+	<tr>
+		<th>Job ExP:</th>
+		<td><%= @monster.jexp %></td> 
+		<th>Int:</th> 
+		<td><%= @monster.int %></td>
+	</tr>
+	<tr>
+		<th>ATK:</th>
+		<td><%= @monster.atkrange %></td> 
+		<th>Dex:</th> 
+		<td><%= @monster.dex %></td>
+	</tr>
+	<tr>
+		<th>Mode:</th>
+		<td><%= @monster.mode %></td> 
+		<th>Luk:</th> 
+		<td><%= @monster.luk %></td>
+	</tr>
+	<tr>
+		<th>Scale:</th>
+		<td><%= @monster.mob_scale %></td>
+		<th>Race:</th>
+		<td><%= @monster.mob_race %></td> 
+	</tr>
+	<tr>
+		<th>Mob ID:</th>
+		<td><%= @monster.mobid %></td> 
+		<th>Element:</th>
+		<td><%= @monster.mob_element %></td>
 	</tr>
 </table>
-<% end %>
 
-<h3>Normal</h3>
-<table class="table table-bordered table-hover">
-	<tr> 
-		<% @monster.drops.each do |item| %>
-			<td><%= link_to item, item %></td>
-		<% end %>
-	</tr> 
-</table>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+	<ul class="nav nav-tabs">
+    	<li class="active"><a href="#tab1" data-toggle="tab">Drops</a></li>
+    	<li><a href="#tab2" data-toggle="tab">Spawns</a></li>
+    	<li><a href="#tab3" data-toggle="tab">Skills</a></li>
+    </ul>
+    <div class="tab-content">
+    	<div class="tab-pane active" id="tab1">
+    		<h4>Normal</h4>
+			<table class="table table-bordered table-hover">
+				<tr>
+					<% @monster.monster_items.each do |drop| %>
+					<td><%= link_to(drop.item, drop.item) %></td>
+					<% end %>
+				</tr>
+				<tr>
+					<% @monster.monster_items.each do |drop| %>
+					<td><%= drop.percent/100.00 %> %</td>
+					<% end %>
+				</tr>
+			</table>
+			<% if @monster.mexp > 0 %>
+			<h4>MVP - Drops</h4>
+			<table class="table table-bordered table-hover">
+				<tr>
+					<% @monster.mvp_items.each do |mvpitem| %>
+					<td><%= link_to(mvpitem.item, mvpitem.item) %></td>
+					<% end %>
+					<td>MVP Exp: </td>
+				</tr>
+				<tr>
+					<% @monster.mvp_items.each do |mvpitem| %>
+					<td><%= mvpitem.percent/100.00 %> %</td>
+					<% end %>
+					<td><%= @monster.mexp %></td>
+				</tr>
+			</table>
+			<% end %>
+    	</div>
+    	<div class="tab-pane" id="tab2">
+    		<h4>Spawn locations</h4>
+			<table class="table table-hover">
+				<tr>
+				</tr>
+			</table>
+    	</div>
+    	<div class="tab-pane" id="tab3">
+    		<table class="table table-bordered table-hover">
+			<% @monster.mobskills.each do |skill| %>
+				<tr>
+					<td><%= skill %></td>
+				</tr>
+			<% end %>
+			</table>		
+    	</div>
+	</div>
+</div>

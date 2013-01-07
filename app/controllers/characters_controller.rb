@@ -6,10 +6,8 @@ class CharactersController < ApplicationController
 
   	@characters = Character.order(sort_column + " " + sort_direction)
   	
-  	unless params["show.all"].to_i==1
-  	    @characters = @characters.where("weight != 0")
-  	end
   		respond_with(@characters)
+      
   end
 
   def show
@@ -17,7 +15,7 @@ class CharactersController < ApplicationController
   end
 
   def sort_column
-    	Character.column_names.include?(params["sort.by"]) ? params["sort.by"] : "jobid"
+    	Character.column_names.include?(params["sort.by"]) ? params["sort.by"] : "jobname"
     end    
 
     def sort_direction

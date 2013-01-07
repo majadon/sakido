@@ -18,6 +18,7 @@ Ragnarok::Application.routes.draw do
       resources :characters
       resources :monsters
       resources :items
+      resources :spawns
       resources :exp 
     end
 
