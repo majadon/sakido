@@ -1,0 +1,32 @@
+<div class="tab-pane" id="tab3">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>dummy_value</th>
+				<th>skill_id</th>
+				<th>state</th>
+				<th>skill_lv</th>
+				<th>rate</th>
+				<th>casttime</th>
+				<th>delay</th>
+				<th>target</th>
+				<th>emotion</th>
+				<th>chat</th>
+				<th>condition_type</th>
+				<th>condition_value</th>
+				<th>val1</th>
+				<th>val2</th>
+				<th>val3</th>
+				<th>val4</th>
+				<th>val5</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @monster.monsterskills.each do |skill| %>
+			<tr>
+				<%= render skill %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

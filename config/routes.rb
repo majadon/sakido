@@ -1,10 +1,11 @@
-Ragnarok::Application.routes.draw do  
+Ragnarok::Application.routes.draw do
 
-  scope "(:locale)", :locale => /de|en/ do
+    scope "(:locale)", :locale => /de|en/ do
 
     # You can have the root of your site routed with "root"
     # just remember to delete public/index.html.
-    match '/:locale' => 'basic_pages#index'
+    
+    # match '/:locale' => 'basic_pages#index'
     root :to => 'basic_pages#index'
 
     get "basic_pages/impressum"
@@ -18,7 +19,7 @@ Ragnarok::Application.routes.draw do
       resources :characters
       resources :monsters
       resources :items
-      resources :spawns
+      resources :maps
       resources :exp 
     end
 
@@ -26,11 +27,12 @@ Ragnarok::Application.routes.draw do
     resources :users
     resources :databases
 
-    mount Forem::Engine, :at => "/forums"
+    # mount Forem::Engine, :at => "/forums"
 
     match '/database', to: 'databases#index'
     match '/about', to: 'basic_pages#about'
     match '/contact', to: 'basic_pages#contact'
+    match '/serverstate', to: 'server_states#index'
 
   end
 
@@ -80,6 +82,10 @@ Ragnarok::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

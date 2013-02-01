@@ -1,0 +1,26 @@
+<div class="tab-pane" id="tab2">
+	<h4>Spawn locations</h4>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Map Name</th>
+				<th>Y Cord</th>
+				<th>X Cord</th>
+				<th>Y2 Cord</th>
+				<th>X2 Cord</th>
+				<th>Monster</th>
+				<th>Monstername</th>
+				<th>Mob ID</th>
+				<th>Amount</th>
+				<th>Delay</th>
+				<th>Variance</th>
+				<th>Event</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @monster.spawns.order("amount DESC").each do |spawn| %>
+			<%= render spawn %>
+			<% end %>
+		</tbody>
+	</table>
+</div>

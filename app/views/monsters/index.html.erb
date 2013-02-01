@@ -4,16 +4,19 @@
 </div>
 
   <%= form_tag({:controller => "monsters", :action => "index"}, :method => "get", :class => "form-search") do |f| %>
-  <%= label_tag(:name, "Search for:") %>
   <%= text_field_tag(:name, params[:name], :placeholder => "Name") %>
   <%= text_field_tag(:lv, params[:lv], :placeholder => "Level") %>  
-  <%= text_field_tag(:lvrange, params[:lvrange], :placeholder => "Range") %>  
+  <%= text_field_tag(:lvrange, params[:lvrange], :placeholder => "Range") %>
+  <%= check_box_tag("show.all", 1, params["show.all"]) %>
+  <%= label_tag(:show_all, "Show all") %>  
   <%= hidden_field_tag "sort.by", params["sort.by"], :id=>"sort.by" %>
   <%= hidden_field_tag "sort.order", params["sort.order"], :id=>"sort.order" %>
   <%= submit_tag("Search", :class => "btn btn-primary") %>
   <%= link_to "clear filter", monsters_path %>
   
   <% end %>
+
+  <div class="pull-right"><%= page_entries_info @monsters %></div>
 
     <table class="table table-hover table-bordered">
     	<tr>
@@ -31,3 +34,4 @@
       		<% end %>
       	</tr>
     </table> 
+  <div class="pagination center"><%= will_paginate @monsters %></div>

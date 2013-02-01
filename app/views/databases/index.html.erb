@@ -4,11 +4,9 @@
 </div>
 <table class="table table-bordered table-hover">
 	<th coolspan="2">DBs</th>
-	<tr><td><%= link_to t(:characters), main_app.characters_path %></td></tr>
-	<tr><td><%= link_to t(:monsters), main_app.monsters_path %></td></tr>
+	<tr><td><%= link_to t(:monster), main_app.monsters_path %></td></tr>
 	<tr><td><%= link_to t(:items), main_app.items_path %></td></tr>
-	<tr><td><%= link_to t(:spawns), main_app.spawns_path %></td></tr>
-	<tr><td><%= link_to 'EXP', '#' %></td></tr>
+	<tr><td><%= link_to(t(:map), maps_path ) %></td></tr>
 </table>
 
 

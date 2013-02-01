@@ -1,23 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'devise'
-gem 'forem', :git => "git://github.com/radar/forem.git"
+# gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'bootstrap-sass', '2.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 
+# gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
 	gem 'sqlite3'
+	gem 'wherex'
 end
 
 group :production do
 	gem 'mysql2'
+end
+
+group :development do
+	gem 'annotate', '2.5.0'
 end
 
 

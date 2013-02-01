@@ -46,3 +46,8 @@ end
  ['29', 'Undead 1'], ['49', 'Undead 2'], ['69', 'Undead 3'], ['89', 'Undead 4']].each do |id, mob_element|
 	Element.create(:element_id => id, :monster_element => mob_element)
 end
+
+['MD_CANMOVE', 'MD_LOOTER', 'MD_AGGRESSIVE', 'MD_ASSIST', 'MD_CASTSENSOR_IDLE', 'MD_BOSS', 'MD_PLANT', 'MD_CANATTACK', 'MD_DETECTOR',
+ 'MD_CASTSENSOR_CHASE', 'MD_CHANGECHASE', 'MD_ANGRY', 'MD_CHANGETARGET_MELEE', 'MD_CHANGETARGET_CHASE', 'MD_TARGETWEAK', 'MD_RANDOMTARGET'].each do |mode|
+	Monstermode.find_or_create_by_mode_id mode
+end

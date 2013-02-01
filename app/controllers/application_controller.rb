@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  before_filter :authenticate    
+   
   before_filter :set_locale
 		
 	def set_locale

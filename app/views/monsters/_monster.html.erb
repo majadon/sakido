@@ -1,0 +1,7 @@
+<tr>
+	<td><%= link_to monster.ironame, monster %></td>
+	<td><%= monster.lv %></td>
+	<% spawn = monster.spawns.where(:map_name => @map.map_id).first %>
+	<td><%= spawn.amount %></td>
+	<td><%= human_delay_time spawn.delay %></td>
+</tr>

@@ -1,45 +1,49 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand">sakido.net</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li><%= link_to('Home', main_app.root_path ) %></li>
-          <li class="divider-vertical"></li>
-          <li><%= link_to(t(:forums), forem.root_path ) %></li>
-          <li class="divider-vertical"></li>
-          <li><%= link_to(t(:database), main_app.databases_path ) %></li>
-        </ul>
-        <% if user_signed_in? %>
-        <ul class="nav">
-          <li class="divider-vertical"></li>
-          <li><%= link_to t(:edit_profil), main_app.edit_user_registration_path %></li>
-          <li class="divider-vertical"></li>
-          <li><%= link_to "Logout", main_app.destroy_user_session_path, :method => :delete %></li>
-        <% if current_user.role_id >= 4 %>
-          <li class="divider-vertical"></li>
-          <li><%= link_to('Admin-CP', '#' ) %></li>
-        <% if current_user.forem_admin %>
-          <li class="divider-vertical"></li>
-          <li><%= link_to "Forum-CP", forem.admin_root_url %></li>
-        <% end %>
-        <% end %>
-        </ul>
-        <% else %>
-        <form action="/users/sign_in" class="navbar-form pull-right new_user" id="new_user" method="post">
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <input name="authenticity_token" type="hidden" value="lSvSmaVYiuESFhW92iYWD6k5A0dt90uqGdgjqIwkMYc=" />
-          <input class="span2" id="user_email" name="user[email]" type="email" value="" placeholder="Email" />
-          <input class="span2" id="user_password" name="user[password]" type="password" placeholder="Password" />
-          <button name="commit" type="submit" class="btn">Sign in</button>
-        </form>
-        <% end %>
-      </div>      
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+          <%= link_to "sakido.net", root_path, id: "logo" %>
+          <nav>
+          <ul class="nav pull-left">
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t(:database) %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to(t(:monster), monsters_path ) %></li>
+                <li><%= link_to(t(:item), items_path ) %></li>
+                <li><%= link_to(t(:map), maps_path ) %></li>              
+                <li class="divider"></li>
+                <li>
+                  <%= link_to t(:all_database), databases_path %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+            <ul class="nav pull-right">
+                <li><%= link_to "Home", root_path %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Users", users_path %></li>
+                  <li id="fat-menu" class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Account <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "Profile", current_user %></li>
+                        <li><%= link_to "Settings", edit_user_registration_path %></li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+                        </li>
+                      </ul>
+                  </li>
+                  <% else %>
+                  <li><%= link_to "Sign in", new_user_session_path %></li>
+                <% end %>
+                <li><%= link_to(image_tag("de.png"), { :locale => :de }) %></li>
+                <li><%= link_to(image_tag("us.png"), { :locale => :en }) %></li>
+            </ul>
+          </nav>
+      </div>
     </div>
-  </div>
-</div>
+</header>

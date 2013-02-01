@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   	    @items = Item.order(sort_column + " " + sort_direction)
 
         unless params["show.all"].to_i==1
-          @items = @items.where("items.name != ('') | items.loc != 0")
+          @items = @items.where("items.name != ('')")
         end
 
         unless params[:name].blank?

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Ragnarok::Application.config.secret_token = '87e18e96d846d3a22d0e7610bcdb94cc9e8db5ef2a717cb930bdbac246f1c4493d51dcb6a5deab1df1e3ab1da77c18d1cc553d8c6aaedba038b4c479109b2ff2'
+Ragnarok::Application.config.secret_token = '5190673abc6a14326e07d99b4322a37428c1da0bd400d5b30b61612d04b002bd69ea848a75bd1e2f6660a2ff94d5785a7c52d6870dbb26e0faa8c34515bcee3a'

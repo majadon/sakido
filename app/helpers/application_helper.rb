@@ -10,4 +10,13 @@ module ApplicationHelper
 		end
 	end
 
+	def human_delay_time(delay)
+		delay = delay.to_i/1000/60
+		if delay.zero?
+			"instant"
+		else
+			 pluralize delay, "Minute"
+		end
+	end
+
 end

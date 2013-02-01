@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.pagination span.gap {
+	border-width: 0;
+	padding: 0px 0px;
+}

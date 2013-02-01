@@ -6,7 +6,7 @@ class MonstersController < ApplicationController
   	    @monsters = Monster.order(sort_column + " " + sort_direction)
 
   	    unless params["show.all"].to_i==1
-  	    	@monsters = @monsters.where("monsters.exp != 0" || "monster.sprite_name != ('^[E,G]_|$_[E,G]')")
+  	    	@monsters = @monsters.where("monsters.exp != 0")
   	    end
 
         unless params[:name].blank?
@@ -22,7 +22,7 @@ class MonstersController < ApplicationController
           @monsters = @monsters.where(:lv => lv1..lv2)
         end
 
-  	    	respond_with(@monsters)
+  	    	respond_with(@monsters = @monsters.page(params[:page]))
   	end
 
         def show

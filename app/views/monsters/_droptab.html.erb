@@ -1,0 +1,32 @@
+<div class="tab-pane active" id="tab1">
+	<h4>Normal</h4>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<% @monster.monster_items.each do |drop| %>
+			<td><%= image_tag("items/items_small/#{drop.item.itemid}.png") %> <%= link_to(drop.item, drop.item) %></td>
+			<% end %>
+		</tr>
+		<tr>
+			<% @monster.monster_items.each do |drop| %>
+			<td><%= drop.percent/100.00 %> %</td>
+			<% end %>
+		</tr>
+	</table>
+	<% if @monster.mexp > 0 %>
+	<h4>MVP - Drops</h4>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<% @monster.mvp_items.each do |mvpitem| %>
+			<td><%= image_tag("items/items_small/#{mvpitem.item.itemid}.png") %><%= link_to(mvpitem.item, mvpitem.item) %></td>
+			<% end %>
+			<td>MVP Exp: </td>
+		</tr>
+		<tr>
+			<% @monster.mvp_items.each do |mvpitem| %>
+			<td><%= mvpitem.percent/100.00 %> %</td>
+			<% end %>
+			<td><%= number_with_delimiter(@monster.mexp) %></td>
+		</tr>
+	</table>
+	<% end %>
+</div>

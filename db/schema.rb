@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106220548) do
+ActiveRecord::Schema.define(:version => 20130130125602) do
 
   create_table "characters", :force => true do |t|
     t.integer  "jobid"
@@ -178,6 +178,14 @@ ActiveRecord::Schema.define(:version => 20130106220548) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "maps", :force => true do |t|
+    t.string   "map_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "maps", ["map_id"], :name => "index_maps_on_map_id", :unique => true
+
   create_table "monster_items", :force => true do |t|
     t.integer  "monster_id"
     t.integer  "item_id"
@@ -188,6 +196,22 @@ ActiveRecord::Schema.define(:version => 20130106220548) do
 
   add_index "monster_items", ["item_id"], :name => "index_monster_items_on_item_id"
   add_index "monster_items", ["monster_id"], :name => "index_monster_items_on_monster_id"
+
+  create_table "monster_spawns", :force => true do |t|
+    t.integer  "monster_id"
+    t.string   "spawn_id"
+    t.integer  "amount"
+    t.integer  "delay"
+    t.integer  "variance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "monstermodes", :force => true do |t|
+    t.string   "mode_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "monsters", :force => true do |t|
     t.integer  "mobid"
@@ -212,9 +236,9 @@ ActiveRecord::Schema.define(:version => 20130106220548) do
     t.integer  "luk"
     t.integer  "range2"
     t.integer  "range3"
-    t.integer  "scale"
-    t.integer  "race"
-    t.integer  "element"
+    t.integer  "scale_id"
+    t.integer  "race_id"
+    t.integer  "element_id"
     t.string   "mode"
     t.integer  "speed"
     t.integer  "adelay"
@@ -250,6 +274,8 @@ ActiveRecord::Schema.define(:version => 20130106220548) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "monsters", ["lv"], :name => "index_monsters_on_lv"
 
   create_table "monsterskills", :force => true do |t|
     t.integer  "mobid"
@@ -304,6 +330,23 @@ ActiveRecord::Schema.define(:version => 20130106220548) do
     t.string   "size"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "spawns", :force => true do |t|
+    t.string   "map_name"
+    t.integer  "x_cord"
+    t.integer  "y_cord"
+    t.integer  "x2_cord"
+    t.integer  "y2_cord"
+    t.string   "monster_type"
+    t.string   "name"
+    t.integer  "mob_id"
+    t.integer  "amount"
+    t.integer  "delay"
+    t.integer  "variance"
+    t.integer  "event"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
